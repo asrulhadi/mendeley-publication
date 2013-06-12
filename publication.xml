@@ -10,7 +10,7 @@
   <script type="text/javascript">
   // Get userprefs -> name
   var prefs = new gadgets.Prefs();
-  var profile_name = prefs..getString("profile_name")
+  var profile_name = prefs.getString("profile_name")
 
   function getPublications() {
     var params = {};  
