@@ -3,7 +3,7 @@
   <ModulePrefs title="hello world example" /> 
   <Content type="html">
      <![CDATA[ 
-  <div id="content_div"></div>
+  <div id="publication_lists"></div>
   <script type="text/javascript">
 
   // This example fetches data from a CSV file containing contact information. In the CSV file, 
@@ -19,15 +19,15 @@
     var domdata = obj.data;
     // Set CSS for div.
     var html = "<div style='padding: 5px;background-color: #FFFFBF;font-family:Arial, Helvetica;" 
-    + "text-align:left;font-size:90%'>"; 
+    + "text-align:left;font-size:90%'>Publications"; 
 
     var pubs = domdata.getElementById("publications").innerHTML;
-    html += pubs;
+    // html += pubs;
     alert(pubs);
 
     html += "</div>";
     // Output html in div.
-    document.getElementById('content_div').innerHTML = html;
+    document.getElementById('publication_lists').innerHTML = html;
   }
   gadgets.util.registerOnLoadHandler(getPublications);
 
