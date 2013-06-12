@@ -17,7 +17,7 @@
   // Callback function to process the response
   function response(obj) {
     alert(obj);
-    for (dd of obj) alert(dd);
+    alert(obj.errors);
     var domdata = obj.data;
     alert(domdata);
     // Set CSS for div.
