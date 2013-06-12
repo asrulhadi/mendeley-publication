@@ -17,13 +17,13 @@
   // Callback function to process the response
   function response(obj) {
     var domdata = obj.data;
-    alert(domdata);
     // Set CSS for div.
     var html = "<div style='padding: 5px;background-color: #FFFFBF;font-family:Arial, Helvetica;" 
     + "text-align:left;font-size:90%'>"; 
 
     var pubs = domdata.getElementById("publications").innerHTML;
     html += pubs;
+    alert(pubs);
 
     html += "</div>";
     // Output html in div.
