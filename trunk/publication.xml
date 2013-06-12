@@ -3,21 +3,25 @@
   <ModulePrefs title="Publication imported from Mendeley" >
     <Require feature="dynamic-height"/>
   </ModulePrefs> 
+  <UserPref name="profile_name" display_name="Mendeley Profile Name" required="true" />  
   <Content type="html">
      <![CDATA[ 
   <div id="publication_lists"></div>
   <script type="text/javascript">
+  // Get userprefs -> name
+  var prefs = new gadgets.Prefs();
+  var profile_name = prefs..getString("profile_name")
 
-  // This example fetches data from a CSV file containing contact information. In the CSV file, 
-  // each record consists of a name, email address, and phone number.
   function getPublications() {
     var params = {};  
     params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
-    var url = "http://www.mendeley.com/profiles/asrul-hadi-yaacob/";
+    var url = "http://www.mendeley.com/profiles/" + profile_name + "/";
     gadgets.io.makeRequest(url, response, params);
   };
+
   // Callback function to process the response
   function response(obj) {
+    // get the publications list
     var e = document.createElement('div');
     e.setAttribute('style', 'display: none;');
     e.innerHTML = obj.text;
@@ -38,14 +42,14 @@
         }
       }
     }
+    // ready to publish
     pubsHTML = pubs.innerHTML;
     document.body.removeChild(e);
 
-    var html = ""; 
-
+    var html = "<div>"; 
     html += pubsHTML;
-
     html += "</div>";
+
     // Output html in div.
     document.getElementById('publication_lists').innerHTML = html;
     gadgets.window.adjustHeight();
