@@ -4,6 +4,7 @@
   <Content type="html">
      <![CDATA[ 
   <div id="publication_lists"></div>
+  <script type="text/javascript" src="http://ejohn.org/files/htmlparser.js"></script>
   <script type="text/javascript">
 
   // This example fetches data from a CSV file containing contact information. In the CSV file, 
@@ -21,7 +22,7 @@
   function response(obj) {
     alert(obj);
     alert(obj.errors);
-    var domdata = obj.text;
+    var domdata = HTMLtoDOM(obj.text);
     alert(domdata);
     // Set CSS for div.
     var html = "<div style='padding: 5px;background-color: #FFFFBF;font-family:Arial, Helvetica; text-align:left;font-size:90%'>Publications"; 
