@@ -10,9 +10,6 @@
   // each record consists of a name, email address, and phone number.
   function getPublications() {
     var params = {};  
-    // DOM Failed as it need XML
-    params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.DOM;
-    // switch to text
     params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.TEXT;
     var url = "http://www.mendeley.com/profiles/asrul-hadi-yaacob/";
     gadgets.io.makeRequest(url, response, params);
@@ -23,18 +20,17 @@
     e.setAttribute('style', 'display: none;');
     e.innerHTML = obj.text;
     document.body.appendChild(e);
-    pubs = document.getElementById("publications").innerHTML;
+    pubs = document.getElementById("publications");
+    journal = document.getElementById("JournalArticle");
+    for (j=0; j<journal.children.length; j++) {
+      alert(journal.children[j].innerHTML);
+      alert(journal.children[j].getElementsByClassName("data")[0].getElementsByTagName("a")[0].href);
+    }
     document.body.removeChild(e);
-    alert(pubs);
 
-    // var domdata = obj.text;
-    // alert(domdata);
-    // Set CSS for div.
-    var html = "<div style='padding: 5px;background-color: #FFFFBF;font-family:Arial, Helvetica; text-align:left;font-size:90%'>Publications"; 
+    var html = ""; 
 
-    // var pubs = domdata.getElementById("publications");
-    html += pubs;
-    alert(pubs);
+    html += pubs.innerHTML;
 
     html += "</div>";
     // Output html in div.
