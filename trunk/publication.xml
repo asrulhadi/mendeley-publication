@@ -21,7 +21,7 @@
     var html = "<div style='padding: 5px;background-color: #FFFFBF;font-family:Arial, Helvetica;" 
     + "text-align:left;font-size:90%'>"; 
 
-    var pubs = domdata.getElementsById("publications").innerHTML;
+    var pubs = domdata.getElementById("publications").innerHTML;
     html += pubs;
 
     html += "</div>";
