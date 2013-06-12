@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="hello world example" /> 
+  <ModulePrefs title="Publication imported from Mendeley" >
+    <Require feature="dynamic-height"/>
+  </ModulePrefs> 
   <Content type="html">
      <![CDATA[ 
   <div id="publication_lists"></div>
@@ -23,20 +25,21 @@
     pubs = document.getElementById("publications");
     journal = document.getElementById("JournalArticle");
     for (j=0; j<journal.children.length; j++) {
-      alert(journal.children[j].innerHTML);
-      alert(journal.children[j].getElementsByClassName("data")[0].getElementsByTagName("a")[0].href);
+      journal.children[j].getElementsByClassName("data")[0].getElementsByTagName("a")[0].hostname = "www.mendeley.com";
     }
+    pubsHTML = pubs.innerHTML;
     document.body.removeChild(e);
 
     var html = ""; 
 
-    html += pubs.innerHTML;
+    html += pubsHTML;
 
     html += "</div>";
     // Output html in div.
     document.getElementById('publication_lists').innerHTML = html;
   }
   gadgets.util.registerOnLoadHandler(getPublications);
+  gadgets.window.adjustHeight();
 
  </script>
      ]]>
