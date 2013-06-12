@@ -21,7 +21,7 @@
   function response(obj) {
     var e = document.createElement('div');
     e.setAttribute('style', 'display: none;');
-    e.innerHTML = data.text;
+    e.innerHTML = obj.text;
     document.body.appendChild(e);
     pubs = document.getElementById("publications").innerHTML;
     document.body.removeChild(e);
