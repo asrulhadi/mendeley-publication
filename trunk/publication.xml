@@ -30,9 +30,9 @@
     // modified all the links 
     var pubsSection = [ "JournalArticle", "BookSection", "ConferenceProceedings" ];
     for (sec of pubsSection) {
-      lists = document.getElementById(sec);
-      for (j=0; j<lists.children.length; j++) {
-        links = lists.children[j].getElementsByClassName("data")[0].getElementsByTagName("a") 
+      lists = document.getElementById(sec).getElementsByClassName("data");
+      for (j=0; j<lists.length; j++) {
+        links = lists[0].getElementsByTagName("a") 
         // change the hostname
         links[0].hostname = "www.mendeley.com";
         links[0].target = "new";
