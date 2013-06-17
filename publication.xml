@@ -29,7 +29,8 @@
     pubs = document.getElementById("publications");
     // modified all the links 
     var pubsSection = [ "JournalArticle", "BookSection", "ConferenceProceedings" ];
-    for (sec of pubsSection) {
+    for (i in pubsSection) {
+      sec = pubsSection[i];
       lists = document.getElementById(sec).getElementsByClassName("data");
       for (j=0; j<lists.length; j++) {
         links = lists[0].getElementsByTagName("a") 
